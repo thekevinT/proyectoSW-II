@@ -1,0 +1,42 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark bg-faded">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="#">
+        <!--poner icono en el navbar -->
+        <img src="assets/img/chatClass.PNG" width="30" height="30" alt="">
+    </a>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <!--aCTIVE ES PARA QUE SE VEA BLANCO LA LETRA HOME-->
+            <li class="nav-item" roterLinkActive="active">
+                <a class="nav-link" [routerLink]="['home']">HOME</a>
+            </li>
+            <!--AÑADIR ITEMS-->
+            <li class="nav-item" roterLinkActive="active">
+                <a class="nav-link" [routerLink]="['profesores']">PROFESORES</a>
+            </li>
+            <li class="nav-item" roterLinkActive="active">
+                <a class="nav-link" [routerLink]="['about']">SOBRE CLASS-CHAT</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Dropdown
+          </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+            </li>
+        </ul>
+
+        <form class="form-inline my-2 my-lg-0">
+            <!--funcion keyup para que al dar enter funcione-->
+            <input class="form-control mr-sm-2" type="search" placeholder="Buscar Profesor" aria-label="search" (keyup.enter)="buscarProfesor(buscarTexto.value)" #buscarTexto>
+            <button style="margin: 10px" (click)="buscarProfesor(buscarTexto.value)" class="btn btn-outline-primary my-2 my-sm-0" type="button">Buscar</button>
+            <button class="btn btn-outline-primary my-2 my-sm-0" type="button">Salir</button>
+        </form>
+    </div>
+</nav>

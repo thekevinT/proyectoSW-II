@@ -1,0 +1,46 @@
+<h1>PROFESORES <small>PERSONALES</small> </h1>
+<hr>
+<div class="card-columns">
+    <!--prof es variable cualquiera profesores es de profesores.component.ts -->
+    <!--pongo una sola tarjeta porque extrae todos los profesores del profesores.service.ts porque es un arreglo-->
+    <!--alt extrer el nombre de cada profesor -->
+    <div class="card animated fadeIn fast" *ngFor="let prof of profesores; let i = index">
+        <img [src]="prof.img" class="card-img-top" [alt]="prof.nombre">
+        <div class="card-body">
+            <h5 class="card-title">{{ prof.nombre }}</h5>
+            <p class="card-text">{{ prof.bio }}</p>
+            <p class="card-text"><small class="text-muted">{{ prof.aparicion }}</small></p>
+            <!-- <button type="button" class="btn btn btn-outline-primary btn-block">VER MÁS ...</button>-->
+            <!-- <button type="button" class="btn btn btn-outline-primary btn-block">CHAT</button>-->
+
+            <form>
+                <p class="clasificacion">
+                    <input id="radio1" type="radio" name="estrellas" value="5">
+                    <!--
+                  --><label for="radio1">★</label>
+                    <!--
+                  --><input id="radio2" type="radio" name="estrellas" value="4">
+                    <!--
+                  --><label for="radio2">★</label>
+                    <!--
+                  --><input id="radio3" type="radio" name="estrellas" value="3">
+                    <!--
+                  --><label for="radio3">★</label>
+                    <!--
+                  --><input id="radio4" type="radio" name="estrellas" value="2">
+                    <!--
+                  --><label for="radio4">★</label>
+                    <!--
+                  --><input id="radio5" type="radio" name="estrellas" value="1">
+                    <!--
+                  --><label for="radio5">★</label>
+                </p>
+            </form>
+            <!--opciones de REDIRECCIONAR PAGINA-->
+            <a [routerLink]="['/prof', i]" routerLinkActive="router-link-active" class="btn btn btn-outline-primary btn-block">CHAT</a>
+
+
+        </div>
+
+    </div>
+</div>

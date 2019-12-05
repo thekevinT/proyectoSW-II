@@ -1,0 +1,46 @@
+<section id="login" class="mb-5 mt-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-4 mx-auto">
+                <div class="card_login">
+                    <div class="card my-5 alert-dark">
+                        <div class="card-body text-center">
+
+
+                            <div class="form-group">
+                                <input [(ngModel)]="email" type="email" id="email" name="email" class="form-control" placeholder="Email" required />
+                            </div>
+                            <div class="form-group">
+                                <input [(ngModel)]="password" type="password" id="password" name="password" class="form-control" placeholder="Password" required />
+                            </div>
+                            <button type="submit" (click)="onLogin()" class="btn btn-lg btn-success btn-block">
+                                 Login
+                  </button>
+                            <div class="form-group">
+                                <a routerLink="/user/register" class="form-control login-user">Eres nuevo ?</a
+                    >
+                  </div>
+                  <div class="form-group">
+                    <button
+                      class="btn  btn-block btn-primary btn-facebook "
+                      (click)="onLoginFacebook()"
+                    >
+                      FACEBOOK
+                    </button>
+  
+                    <button
+                      class="btn  btn-block btn-danger btn-social btn-google "
+                      (click)="onLoginGoogle()"
+                    >
+                      GOOGLE
+                    
+                    </button>
+                  </div>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

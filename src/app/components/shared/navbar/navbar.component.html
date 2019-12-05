@@ -36,7 +36,9 @@
             <!--funcion keyup para que al dar enter funcione-->
             <input class="form-control mr-sm-2" type="search" placeholder="Buscar Profesor" aria-label="search" (keyup.enter)="buscarProfesor(buscarTexto.value)" #buscarTexto>
             <button style="margin: 10px" (click)="buscarProfesor(buscarTexto.value)" class="btn btn-outline-primary my-2 my-sm-0" type="button">Buscar</button>
-            <button class="btn btn-outline-primary my-2 my-sm-0" type="button">Salir</button>
+
+            <button class="btn btn-outline-primary mx-2 my-2 my-sm-0" *ngIf="!isLogged" (click)="Ingresarlogin()" type="button">Login</button>
+            <button class="btn btn-outline-primary my-2 my-sm-0" *ngIf="isLogged" (click)="onLogout()" type="button">Log out</button>
         </form>
     </div>
 </nav>

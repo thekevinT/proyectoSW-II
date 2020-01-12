@@ -27,6 +27,8 @@ import { ProfesoresComponent } from './components/profesores/profesores.componen
 import { ProfComponent } from './components/prof/prof.component';
 import { BuscadorComponent } from './components/buscador/buscador.component';
 import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,9 @@ import { LoginComponent } from './components/login/login.component';
     ProfesoresComponent,
     ProfComponent,
     BuscadorComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

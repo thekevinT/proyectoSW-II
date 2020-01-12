@@ -35,5 +35,9 @@ export class NavbarComponent implements OnInit {
     this.authService.logoutUser();
     this.route.navigate(['home']);
   }
+  IngresarRegistro(){
+    this.route.navigate(['/register']);
+
+  }
 
 }

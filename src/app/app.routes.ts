@@ -7,6 +7,8 @@ import { ProfesoresComponent } from './components/profesores/profesores.componen
 import { ProfComponent } from './components/prof/prof.component';
 import { BuscadorComponent } from './components/buscador/buscador.component';
 import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 const APP_ROUTES: Routes = [
     { path: 'home', component: HomeComponent },
@@ -15,6 +17,8 @@ const APP_ROUTES: Routes = [
     { path: 'prof/:id', component: ProfComponent }, //pasas parametros prof/:id
     { path: 'buscar/:termino', component: BuscadorComponent },
     { path: 'login', component: LoginComponent },
+    { path: 'register', component: RegisterComponent },
+    { path: 'profile', component: ProfileComponent },
     { path: '**', pathMatch: 'full', redirectTo: 'home' }
 ];
 

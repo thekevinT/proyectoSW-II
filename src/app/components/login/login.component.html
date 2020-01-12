@@ -13,7 +13,7 @@
                             <div class="form-group">
                                 <input [(ngModel)]="password" type="password" id="password" name="password" class="form-control" placeholder="Password" required />
                             </div>
-                            <button type="submit" (click)="onLogin()" class="btn btn-lg btn-success btn-block">
+                            <button class="nav-link" [routerLink]="['home']" type="submit" (click)="onLogin()" class="btn btn-lg btn-success btn-block">
                                  Login
                   </button>
                             <div class="form-group">

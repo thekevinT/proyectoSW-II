@@ -14,28 +14,23 @@
             </li>
             <!--AÑADIR ITEMS-->
             <li class="nav-item" roterLinkActive="active">
-                <a class="nav-link" [routerLink]="['profesores']">PROFESORES</a>
+                <a *ngIf="isLogged" class="nav-link" [routerLink]="['profesores']">PROFESORES</a>
             </li>
             <li class="nav-item" roterLinkActive="active">
                 <a class="nav-link" [routerLink]="['about']">SOBRE CLASS-CHAT</a>
             </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Dropdown
-          </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                </div>
+            <li class="nav-item" roterLinkActive="active">
+                <a *ngIf="isLogged" class="nav-link" [routerLink]="['profile']">PERFIL</a>
             </li>
+
         </ul>
 
         <form class="form-inline my-2 my-lg-0">
             <!--funcion keyup para que al dar enter funcione-->
-            <input class="form-control mr-sm-2" type="search" placeholder="Buscar Profesor" aria-label="search" (keyup.enter)="buscarProfesor(buscarTexto.value)" #buscarTexto>
-            <button style="margin: 10px" (click)="buscarProfesor(buscarTexto.value)" class="btn btn-outline-primary my-2 my-sm-0" type="button">Buscar</button>
+            <input class="form-control mr-sm-2" *ngIf="isLogged" type="search" placeholder="Buscar Profesor" aria-label="search" (keyup.enter)="buscarProfesor(buscarTexto.value)" #buscarTexto>
+            <button style="margin: 10px" *ngIf="isLogged" (click)="buscarProfesor(buscarTexto.value)" class="btn btn-outline-primary my-2 my-sm-0" type="button">Buscar</button>
+            <!--BOTON REGISTRO-->
+            <button class="btn btn-outline-primary mx-2 my-2 my-sm-0" *ngIf="!isLogged" (click)="IngresarRegistro()" type="button">Register</button>
 
             <button class="btn btn-outline-primary mx-2 my-2 my-sm-0" *ngIf="!isLogged" (click)="Ingresarlogin()" type="button">Login</button>
             <button class="btn btn-outline-primary my-2 my-sm-0" *ngIf="isLogged" (click)="onLogout()" type="button">Log out</button>

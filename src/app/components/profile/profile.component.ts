@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserInterface } from '../../modelos/user';
 import { AutentificacionService } from '../../servicios/autentificacion.service';
 import { auth } from 'firebase/app';
-
+import { UserApiService } from '../../servicios/user-api.service';
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -15,12 +15,13 @@ export class ProfileComponent implements OnInit {
   url?:string="";
   biografia?: string ="";
   isAdmin?:any=null;
-  user:UserInterface;
+  user?:UserInterface;
   public providerId: string='null';
-  constructor(private authService:AutentificacionService) { }
+  constructor(private authService:AutentificacionService,private userApi:UserApiService) { }
  
     ngOnInit() {
       this.getCurrentUser();
+      
     }
 
     getCurrentUser(){
@@ -31,13 +32,18 @@ export class ProfileComponent implements OnInit {
           this.correo=auth.email;
           this.url=auth.photoURL;
           this.providerId=auth.uid;
-          
+          this.getDetails(this.providerId)
           this.authService.isUserAdmin(this.providerId).subscribe(userRole=>{
           this.isAdmin=Object.assign({},userRole.roles).hasOwnProperty('admin');
             
           })
         }
       })
+    }
+    getDetails(idUser: string):void {
+      this.userApi.getUser(idUser).subscribe(user=>{
+        this.user=user;
+      });
     }
 
 }

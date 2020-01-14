@@ -11,9 +11,11 @@
 
                     <hr>
                     <span>Bienvenido !! 
-                      CUENTA {{isAdmin}}
+                      <!--CUENTA {{isAdmin}} -->
                         <br> {{correo}}
                     </span>
+                    <h6 *ngIf="isAdmin">Biografia: {{user.biografia}}
+                    </h6>
                 </div>
             </div>
         </div>

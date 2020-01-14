@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ProfesoresService, profesor } from '../../servicios/profesores.service';
+import { UserApiService } from '../../servicios/user-api.service';
+import {AutentificacionService} from '../../servicios/autentificacion.service';
+import { UserInterface } from '../../modelos/user';
 
 @Component({
   selector: 'app-profesores',
@@ -8,12 +11,29 @@ import { ProfesoresService, profesor } from '../../servicios/profesores.service'
 })
 export class ProfesoresComponent implements OnInit {
 
-  profesores: profesor[]=[];
+  /*profesores: profesor[]=[];
   
-  constructor( private _profesoresService:ProfesoresService) { }
+  constructor( private _profesoresService:ProfesoresService) { } 
 
   ngOnInit() {
     this.profesores = this._profesoresService.getProfesores();
   }
+  */
+  constructor(private userApi: UserApiService,private authService: AutentificacionService) {
 
+  }
+  private profesores: UserInterface[];
+  
+  isAdmin?:any=null;
+  ngOnInit() {
+    this.getListProfesores();
+    
+  }
+
+  getListProfesores(){
+    this.userApi.getAllProfesors().subscribe(profesores => {
+    this.profesores=profesores;
+    });
+  }
+  
 }

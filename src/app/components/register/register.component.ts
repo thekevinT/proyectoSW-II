@@ -37,7 +37,7 @@ export class RegisterComponent implements OnInit {
     
       }
     onAddUser(){
-      this.authService.registerUser(this.email,this.password,this.isAdmin,this.biografia)
+      this.authService.registerUser(this.email,this.password,this.isAdmin,this.biografia,this.username, this.inputImageUser.nativeElement.value)
       .then((res)=>{  
         this.authService.isAuth().subscribe(user=>{
           if(user){

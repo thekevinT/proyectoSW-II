@@ -21,6 +21,8 @@
                                             <a class="dropdown-item" (click)="rolAdmin()">Profesor</a>
                                             <a class="dropdown-item" (click)="rolEditor()">Estudiante</a>
                                         </div>
+                                        <a *ngIf="isAdmin"> Profesor</a>
+                                        <a *ngIf="!isAdmin"> Estudiante</a>
                                     </div>
                                 </div>
                                 <!-- <div class="alert alert-danger" role="alert" *ngIf="isError">

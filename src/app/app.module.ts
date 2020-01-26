@@ -29,6 +29,8 @@ import { BuscadorComponent } from './components/buscador/buscador.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { ChatComponent } from './components/chat/chat.component';
+import { ChatService } from "./servicios/chat.service";
 
 @NgModule({
   declarations: [
@@ -41,7 +43,8 @@ import { ProfileComponent } from './components/profile/profile.component';
     BuscadorComponent,
     LoginComponent,
     RegisterComponent,
-    ProfileComponent
+    ProfileComponent,
+    ChatComponent
   ],
   imports: [
     BrowserModule,
@@ -49,8 +52,9 @@ import { ProfileComponent } from './components/profile/profile.component';
     APP_ROUTING,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,AngularFireStorageModule,AngularFireAuthModule,FormsModule
+    
   ],
-  providers: [ProfesoresService,AngularFireAuth
+  providers: [ProfesoresService,AngularFireAuth,ChatService
   ], 
   bootstrap: [AppComponent]
 })

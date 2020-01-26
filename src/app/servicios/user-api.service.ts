@@ -39,6 +39,18 @@ private user:Observable<UserInterface>
         }
       }));
     }
+    getUserName(name: string){
+      this.userDocument=this.afs.doc<UserInterface>(`users/${name}`);
+      return this.user=this.userDocument.snapshotChanges().pipe(map(action=>{
+        if(action.payload.exists==false){
+          return null;
+        }else{
+          const data= action.payload.data() as UserInterface;
+          data.id=action.payload.id;
+          return data;
+        }
+      }));
+    }
    
 
 }

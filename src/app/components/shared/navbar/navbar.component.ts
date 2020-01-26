@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output,EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { AutentificacionService } from '../../../servicios/autentificacion.service';
 @Component({
@@ -7,6 +7,9 @@ import { AutentificacionService } from '../../../servicios/autentificacion.servi
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+  term = 'Jeff';
+
+  
 
   constructor( private route:Router,private authService: AutentificacionService) { }
   public isLogged: boolean =false;
@@ -25,7 +28,7 @@ export class NavbarComponent implements OnInit {
     })
   }
   buscarProfesor( termino:string){
-  this.route.navigate(['/buscar',termino]);
+   console.log("Termino",termino)
   }
   Ingresarlogin(){
     this.route.navigate(['/login']);

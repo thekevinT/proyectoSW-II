@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class ProfesoresService {
+  profesorLis =  [];
     private profesores:profesor[] =[
         {
           nombre: "Roberto Cruz",

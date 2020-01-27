@@ -7,11 +7,9 @@ import { ChatService } from "./servicios/chat.service";
 })
   export class AppComponent {
     title = 'spa';
-    constructor( public _cs: ChatService ) { }
-  
-  
+    constructor( public _cs: ChatService ) { 
+    }
   }
-  
 
 
 

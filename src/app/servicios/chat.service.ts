@@ -2,13 +2,12 @@ import { Injectable } from '@angular/core';
 import { Mensaje } from '../interface/mensaje.interface';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
+import { map } from "rxjs/operators";
 
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class ChatService {
-   private itemsCollection: AngularFirestoreCollection<any>;
+   private itemsCollection: AngularFirestoreCollection<Mensaje>;
 
 
   public chats: Mensaje[] = [];
@@ -18,21 +17,25 @@ export class ChatService {
 
   cargarMensajes(){
 
-    this.itemsCollection = this.afs.collection<Mensaje>('chats', ref => ref.orderBy('fecha','desc')
-                                                                            .limit(5) );
+   // this.itemsCollection = this.afs.collection<Mensaje>('chats', ref => ref.orderBy('fecha','desc') .limit(5) );
+   this.itemsCollection = this.afs.collection<Mensaje>('chats');
+   /* return this.itemsCollection.valueChanges().pipe(map( (mensajes: Mensaje[]) =>{
+      console.log( mensajes );
+      this.chats = mensajes;
+  
+   this.chats = [];
 
-    return this.itemsCollection.valueChanges()
-                              /*  .map( (mensajes: Mensaje[]) =>{
-                                console.log( mensajes );
+    for ( let mensaje of mensajes ){
+      this.chats.unshift( mensaje );
+    }
 
-                               /* this.chats = [];
+    return this.chats;
+  }))*/
 
-                                for ( let mensaje of mensajes ){
-                                  this.chats.unshift( mensaje );
-                                }
-
-                                return this.chats;
-                              })*/
+    return this.itemsCollection.valueChanges().pipe(map( (mensajes: Mensaje[]) =>{
+      console.log( mensajes );
+      this.chats = mensajes; 
+    }))                
 
 
   }
@@ -40,10 +43,10 @@ export class ChatService {
 
       // TODO falta el UID del usuario
       let mensaje: Mensaje = {
-        nombre:  this.usuario.nombre,
+        nombre:  "Usuario",
         mensaje: texto,
         fecha: new Date().getTime(),
-        uid: this.usuario.uid
+       // uid: this.usuario.uid
       }
   
       return this.itemsCollection.add( mensaje );

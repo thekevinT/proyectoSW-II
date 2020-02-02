@@ -8,12 +8,13 @@ import { ChatService } from "../../servicios/chat.service";
 })
 export class ChatComponent implements OnInit {
   mensaje: string = "";
+  //elemento siempre apunte abajo
   elemento: any;
   constructor(public _cs: ChatService) { 
-
+//apunte al ultimo elemento
     this._cs.cargarMensajes()
             .subscribe( ()=>{
-
+//carga mas rapido la data
               setTimeout( ()=>{
                 this.elemento.scrollTop = this.elemento.scrollHeight;
               },20);

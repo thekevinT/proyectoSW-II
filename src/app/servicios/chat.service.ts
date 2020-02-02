@@ -17,11 +17,11 @@ export class ChatService {
 
   cargarMensajes(){
 
-   // this.itemsCollection = this.afs.collection<Mensaje>('chats', ref => ref.orderBy('fecha','desc') .limit(5) );
-   this.itemsCollection = this.afs.collection<Mensaje>('chats');
-   /* return this.itemsCollection.valueChanges().pipe(map( (mensajes: Mensaje[]) =>{
+  this.itemsCollection = this.afs.collection<Mensaje>('chats', ref => ref.orderBy('fecha','desc') .limit(5) );
+   //this.itemsCollection = this.afs.collection<Mensaje>('chats');
+   return this.itemsCollection.valueChanges().pipe(map( (mensajes: Mensaje[]) =>{
       console.log( mensajes );
-      this.chats = mensajes;
+     // this.chats = mensajes;
   
    this.chats = [];
 
@@ -30,12 +30,12 @@ export class ChatService {
     }
 
     return this.chats;
-  }))*/
+  }))
 
-    return this.itemsCollection.valueChanges().pipe(map( (mensajes: Mensaje[]) =>{
+   /* return this.itemsCollection.valueChanges().pipe(map( (mensajes: Mensaje[]) =>{
       console.log( mensajes );
       this.chats = mensajes; 
-    }))                
+    }))  */              
 
 
   }

@@ -12,6 +12,7 @@ import { element } from 'protractor';
 })
 
 export class ProfesoresComponent implements OnInit {
+  profesores: UserInterface[];
   @Input() term: string;
   /*profesores: profesor[]=[];
   
@@ -25,7 +26,7 @@ export class ProfesoresComponent implements OnInit {
   constructor(private userApi: UserApiService,private authService: AutentificacionService) {
 
   }
-  private profesores: UserInterface[];
+  
   buscador?:string;
   isAdmin?:any=null;
   ngOnInit() {

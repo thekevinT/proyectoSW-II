@@ -15,7 +15,6 @@ export class ProfesoresComponent implements OnInit {
   profesores: UserInterface[];
   @Input() term: string;
   /*profesores: profesor[]=[];
-  
   constructor( private _profesoresService:ProfesoresService) { } 
 
   ngOnInit() {
@@ -26,12 +25,11 @@ export class ProfesoresComponent implements OnInit {
   constructor(private userApi: UserApiService,private authService: AutentificacionService) {
 
   }
-  public profesores: UserInterface[];
+  //public profesores: UserInterface[];
   buscador?:string;
   isAdmin?:any=null;
   ngOnInit() {
     this.getListProfesores();
-    
   }
 
   getListProfesores(){
@@ -40,6 +38,4 @@ export class ProfesoresComponent implements OnInit {
     });
   }
 
-
-  
 }

@@ -26,7 +26,7 @@ export class ProfesoresComponent implements OnInit {
   constructor(private userApi: UserApiService,private authService: AutentificacionService) {
 
   }
-  
+  public profesores: UserInterface[];
   buscador?:string;
   isAdmin?:any=null;
   ngOnInit() {
